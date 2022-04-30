@@ -31,7 +31,7 @@ class ColorRepository : BaseRepository(){
     /**
      * 获得每一页颜色列表
      */
-    suspend fun getColorList(id:Int) : ApiResponse<ColorList>{
+    suspend fun getColorList(id:String) : ApiResponse<ColorList>{
         return executeHttp {
             mApiService.getColorList(id)
         }
@@ -40,7 +40,7 @@ class ColorRepository : BaseRepository(){
     /**
      * 获得颜色的详细页
      */
-    suspend fun getColorDetail(id:Int) : ApiResponse<ColorDetail>{
+    suspend fun getColorDetail(id:String) : ApiResponse<ColorDetail>{
         return executeHttp {
             mApiService.getColorDetail(id)
         }

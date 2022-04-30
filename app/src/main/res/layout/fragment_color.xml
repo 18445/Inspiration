@@ -1,34 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/tv_color_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="绿"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/gl_color_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <variable
+            name="title"
+            type="String" />
+    </data>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_color_title"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.08"/>
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp2_color"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="#C8DBB8"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/gl_color_title" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent">
+
+        <com.example.inspiration.ui.widget.ColorIndicator
+            android:id="@+id/ci_color"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/vp2_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_color_title" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:id="@+id/tv_color_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{title}"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/gl_color_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/gl_color_top"
+            app:layout_constraintVertical_bias="0.03" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_color_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_color_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp2_color"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/gl_color_title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

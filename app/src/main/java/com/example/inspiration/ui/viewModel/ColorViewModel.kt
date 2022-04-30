@@ -1,6 +1,7 @@
 package com.example.inspiration.ui.viewModel
 
 import android.util.Log
+import android.util.SparseArray
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.inspiration.extension.StateLiveData
@@ -9,6 +10,7 @@ import com.example.inspiration.httpUtils.ColorList
 import com.example.inspiration.httpUtils.ColorPage
 import com.example.inspiration.ui.repository.ColorRepository
 import kotlinx.coroutines.launch
+import java.sql.Statement
 
 /**
  *
@@ -27,9 +29,10 @@ class ColorViewModel : ViewModel(){
         ColorRepository()
     }
 
+
     val colorPage = StateLiveData<ColorPage>()
-    val colorList = StateLiveData<ColorList>()
     val colorDetail = StateLiveData<ColorDetail>()
+    val colorListSet = SparseArray<StateLiveData<ColorList>>()
 
     fun getColorPageId(){
         viewModelScope.launch {
@@ -38,15 +41,18 @@ class ColorViewModel : ViewModel(){
         }
     }
 
-    fun getColorList(id : Int){
+    fun getColorList(id : String){
+        colorListSet.put(id.toInt(),StateLiveData())
         viewModelScope.launch {
-            colorList.value = colorRepository.getColorList(id)
+            colorListSet[id.toInt()].value = colorRepository.getColorList(id)
+            Log.d("colorList",colorListSet[id.toInt()].value.toString())
         }
     }
 
-    fun getColorDetail(id : Int){
+    fun getColorDetail(id : String){
         viewModelScope.launch {
             colorDetail.value = colorRepository.getColorDetail(id)
+            Log.d("colorDetail",colorDetail.value.toString())
         }
     }
 }

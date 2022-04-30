@@ -1,18 +1,26 @@
 package com.example.inspiration.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.activityViewModels
 import com.example.inspiration.BR
 import com.example.inspiration.R
 import com.example.inspiration.base.BaseFragment
 import com.example.inspiration.databinding.FragmentColorRvBinding
+import com.example.inspiration.httpUtils.Color
+import com.example.inspiration.ui.adapter.binding.BindingViewModel
 import com.example.inspiration.ui.adapter.binding.bindingViewModelDsl
 import com.example.inspiration.ui.adapter.core.ListAdapter
+import com.example.inspiration.ui.adapter.core.getViewModel
 import com.example.inspiration.ui.adapter.core.into
 import com.example.inspiration.ui.viewModel.ColorViewModel
+
 
 
 /**
@@ -28,7 +36,7 @@ import com.example.inspiration.ui.viewModel.ColorViewModel
  */
 
 
-class FragmentColorRv (id:Int): BaseFragment() {
+class FragmentColorRv (private val idPaper:String): BaseFragment() {
 
     private lateinit var fragmentColorRvBinding: FragmentColorRvBinding
     private val mColorViewModel by activityViewModels<ColorViewModel>()
@@ -37,18 +45,26 @@ class FragmentColorRv (id:Int): BaseFragment() {
         ListAdapter()
     }
 
+    @SuppressLint("SetTextI18n")
     override fun initData() {
         mListAdapter.into(fragmentColorRvBinding.rvColor)
-        mColorViewModel.getColorList(id)
-        mColorViewModel.colorList.observeState(this){
+        mColorViewModel.getColorList(idPaper)
+        mColorViewModel.colorListSet[idPaper.toInt()].observeState(this){
             onSuccess { colorList ->
-                colorList.color_list.forEach {
-//                    mListAdapter.add(
-//                        bindingViewModelDsl(R.layout.fragment_color_rv,BR.model,it){
-//
-//                        }
-//                    )
-
+                colorList.color_list.forEach { color ->
+                    mListAdapter.add(
+                        bindingViewModelDsl(R.layout.item_rv_color,BR.colorInfo,color){
+                            onBindViewHolder {
+                                val viewModel = getViewModel<BindingViewModel<Color>>()
+                                if(viewModel?.model != null){
+                                    val colorR = viewModel.model?.r!!
+                                    val colorG = viewModel.model?.g!!
+                                    val colorB = viewModel.model?.b!!
+                                    itemView.findViewById<CardView>(R.id.cv_color).setCardBackgroundColor(android.graphics.Color.rgb(colorR,colorG,colorB))
+                                }
+                            }
+                        }
+                    )
                 }
             }
         }

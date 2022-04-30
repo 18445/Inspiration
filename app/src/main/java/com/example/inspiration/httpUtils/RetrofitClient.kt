@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit
 object RetrofitClient {
 
     //请求的地址
-    const val BASE_URL = "redrock.udday.cn:8888"
+    const val BASE_URL = "http://redrock.udday.cn:8888"
 
     //retrofit对象
     private var retrofit: Retrofit? = null

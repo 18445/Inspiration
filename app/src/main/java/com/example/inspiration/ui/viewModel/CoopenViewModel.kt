@@ -27,7 +27,6 @@ class CoopenViewModel : ViewModel() {
         CoopenRepository()
     }
 
-    //    private val userInfo = StateLiveData<Verify>()
     val userToken = StateLiveData<UserToken>()
     val registerInfo = StateLiveData<Any>()
 
@@ -45,10 +44,11 @@ class CoopenViewModel : ViewModel() {
 
     //双向绑定确定用户登录信息
     fun getUserLoginPhone() : String? {
+        Log.d("getUserLoginPhone",loginModelObservable.get()?.phone.toString())
         return loginModelObservable.get()?.phone
     }
-
     fun setUserLoginPhone(value : String){
+        Log.d("setUserLoginPhone",value)
         loginModelObservable.get()?.phone = value
     }
 

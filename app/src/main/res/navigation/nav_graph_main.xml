@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/nav_inspiration">
+
+    <fragment
+        android:id="@+id/nav_inspiration"
+        android:name="com.example.inspiration.ui.fragment.FragmentInspiration"
+        android:label="MyFragment"
+        tools:layout="@layout/fragment_inspiration">
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_color"
+        android:name="com.example.inspiration.ui.fragment.FragmentColor"
+        android:label="TaskFragment"
+        tools:layout="@layout/fragment_color">
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_collect"
+        android:name="com.example.inspiration.ui.fragment.FragmentCollect"
+        android:label="SettingFragment"
+        tools:layout="@layout/fragment_collect"/>
+</navigation>

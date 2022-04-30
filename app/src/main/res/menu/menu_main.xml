@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item
+            android:id="@+id/nav_inspiration"
+            android:icon="@drawable/ic_bottom_inspiration"
+            android:title="灵感" />
+
+        <item
+            android:id="@+id/nav_color"
+            android:icon="@drawable/ic_bottom_color"
+            android:title="色谱" />
+
+        <item
+            android:id="@+id/nav_collect"
+            android:icon="@drawable/ic_bottom_collect"
+            android:title="收藏" />
+
+</menu>

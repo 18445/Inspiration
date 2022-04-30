@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="colorInfo"
+            type="com.example.inspiration.httpUtils.Color" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_item_color_left"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_item_color_right"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.9" />
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="5dp"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/gl_item_color_right"
+            app:layout_constraintStart_toStartOf="@+id/gl_item_color_left"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_item_inside_right"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.9" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_item_inside_top"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.1" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_item_inside_left"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.1" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gl_item_inside_bottom"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.9" />
+
+                <TextView
+                    android:id="@+id/tv_color_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="祖母绿"
+                    android:textSize="30sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/gl_item_inside_right"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/gl_item_inside_top"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/tv_hex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="HEX"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_cmyk"
+                    app:layout_constraintStart_toStartOf="@+id/gl_item_inside_left" />
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/tv_hex_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="@{colorInfo.hex}"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_cmyk"
+                    app:layout_constraintStart_toEndOf="@+id/tv_hex" />
+
+                <TextView
+                    android:layout_marginBottom="6dp"
+                    android:id="@+id/tv_cmyk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CMYK"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_rgb"
+                    app:layout_constraintStart_toStartOf="@+id/gl_item_inside_left" />
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/tv_cmyk_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text='@{colorInfo.c + "," + colorInfo.m+ "," + colorInfo.y+ "," + colorInfo.k}'
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_rgb"
+                    app:layout_constraintStart_toEndOf="@+id/tv_cmyk" />
+
+                <TextView
+                    android:id="@+id/tv_rgb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="RGB"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/gl_item_inside_bottom"
+                    app:layout_constraintStart_toStartOf="@+id/gl_item_inside_left" />
+
+                <TextView
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/tv_rgb_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text='@{colorInfo.r + "," + colorInfo.g+ "," + colorInfo.b}'
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/gl_item_inside_bottom"
+                    app:layout_constraintStart_toEndOf="@+id/tv_rgb" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

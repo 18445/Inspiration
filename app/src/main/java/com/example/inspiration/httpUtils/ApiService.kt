@@ -28,6 +28,22 @@ interface ApiService {
     @POST("/user/login")
     suspend fun loginIn(@Field("phone_number") phone : String) : ApiResponse<UserToken>
 
+    /**
+     * 获得颜色pageId
+     */
+    @GET("/color/page")
+    suspend fun getColorPageId() : ApiResponse<ColorPage>
 
+    /**
+     * 得到每一页的颜色
+     */
+    @GET("/color/color_list")
+    suspend fun getColorList(@Field("theme_id") id :Int) : ApiResponse<ColorList>
+
+    /**
+     * 得到颜色的详细页
+     */
+    @GET("/color/color_detail")
+    suspend fun getColorDetail(@Field("color_detail_id") id: Int): ApiResponse<ColorDetail>
 
 }

@@ -19,7 +19,6 @@ import java.util.concurrent.CancellationException
 enum class HttpError(var code: Int, var errorMsg: String) {
     TOKEN_EXPIRE(3001, "token is expired"),
     PARAMS_ERROR(4003, "params is error")
-    // ...... more
 }
 
 internal fun handlingApiExceptions(code: Int?, errorMsg: String?) = when (code) {

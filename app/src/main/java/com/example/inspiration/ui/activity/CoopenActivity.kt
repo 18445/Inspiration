@@ -1,6 +1,7 @@
 package com.example.inspiration.ui.activity
 
 
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -10,10 +11,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import com.example.inspiration.R
 import com.example.inspiration.base.BaseActivity
+import com.example.inspiration.constant.Constant
 import com.example.inspiration.databinding.ActivityCoopenBinding
 import com.example.inspiration.ui.viewModel.CoopenViewModel
 import com.example.inspiration.utils.onSafeClick
+import com.example.inspiration.utils.toast
 import com.google.android.material.textfield.TextInputLayout
+import com.tencent.mmkv.MMKV
 import kotlin.math.max
 
 
@@ -90,7 +94,7 @@ class CoopenActivity : BaseActivity() {
             mBtnAlphaBottom.observe(this){ mAlpha ->
                 coopenBinding.btnAlphaBottom = mAlpha
                 it.isClickable = mAlpha > 0
-                coopenBinding.tiedLoginPhone.isEnabled = mAlpha > 0
+//                coopenBinding.tiedLoginPhone.isEnabled = mAlpha > 0
             }
 
             it.animate().duration = 1250
@@ -99,8 +103,13 @@ class CoopenActivity : BaseActivity() {
             it.animate().start()
 
             it.onSafeClick({
-                if (validatePhone("",coopenBinding.tilLoginPhone)){
-                    startLogin()
+//                val loginPhone = mCoopenViewModel.getUserLoginPhone() ?: ""
+                val loginPhone = coopenBinding.tiedLoginPhone.text.toString()
+                coopenBinding.tilLoginPhone.isErrorEnabled = false
+                Log.d("getUserLoginPhone", loginPhone)
+
+                if (validatePhone(loginPhone,coopenBinding.tilLoginPhone)){
+                    startLogin(loginPhone)
                 }
             })
         }
@@ -116,8 +125,14 @@ class CoopenActivity : BaseActivity() {
             }
 
             it.onSafeClick({
-                if (validatePhone(",",coopenBinding.tilRegisterPhone)){
-                    startRegister()
+//                val registerPhone = mCoopenViewModel.getUserRegisterPhone() ?: ""
+//                val registerUsername = mCoopenViewModel.getUserRegisterPhone() ?: ""
+
+                val registerPhone = coopenBinding.tiedRegisterPhone.text.toString()
+                val registerUsername = coopenBinding.tiedRegisterUsername.text.toString()
+
+                if (validatePhone(registerPhone,coopenBinding.tilRegisterPhone)){
+                    startRegister(registerPhone,registerUsername)
                 }
             })
         }
@@ -135,14 +150,34 @@ class CoopenActivity : BaseActivity() {
         return (mHeight * 1.25f - mHalfScreenHeight ) / mHalfScreenHeight
     }
 
-    //开启登录界面
-    private fun startLogin(){
-
+    //登录
+    private fun startLogin(phone : String){
+        mCoopenViewModel.loginIn(phone)
+        mCoopenViewModel.userToken.observeState(this){
+            onSuccess {
+                toast("登录成功")
+                startActivity(Intent(this@CoopenActivity, MainActivity::class.java))
+                MMKV.defaultMMKV().decodeString(Constant.Access_USER_TOKEN,it.token)
+                MMKV.defaultMMKV().decodeString(Constant.Refresh_USER_TOKEN,it.refreshToken)
+                finish()
+            }
+            onFailed { _, s ->
+                toast(s.toString())
+            }
+        }
     }
 
-    //注册界面
-    private fun startRegister(){
-
+    //注册
+    private fun startRegister(phone : String,username : String){
+        mCoopenViewModel.register(phone,username)
+        mCoopenViewModel.registerInfo.observeState(this){
+            onSuccess {
+                toast("注册成功")
+            }
+            onFailed { _, s ->
+                toast(s.toString())
+            }
+        }
     }
 
     /**

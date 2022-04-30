@@ -36,12 +36,6 @@ abstract class BaseFragment : Fragment() , OnBackPressListener {
     }
 
     val TAG = javaClass.simpleName
-    /**
-     * 列表接口每页请求的条数
-     */
-    val pageSize = 20
-
-
 
     /**
      * 初始化数据
@@ -52,12 +46,6 @@ abstract class BaseFragment : Fragment() , OnBackPressListener {
      * 初始化 View
      */
     abstract fun initView(view: View)
-
-    /**
-     * 开始请求
-     */
-    abstract fun startHttp()
-
 
     override fun onCreateView(
         inflater: LayoutInflater,

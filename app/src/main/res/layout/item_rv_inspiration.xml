@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="inspirationColor"
+            type="com.example.inspiration.model.InspirationRvModel" />
+        
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_inspiration_mid"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintGuide_begin="200dp" />
+
+        <ImageView
+            android:id="@+id/iv_inspiration_pic"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:transformPivotY="500dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_inspiration_sider"
+            app:layout_constraintEnd_toEndOf="@+id/iv_inspiration_sider"
+            app:layout_constraintStart_toStartOf="@+id/iv_inspiration_sider"
+            imageUrl="@{inspirationColor.topPic}"
+            app:layout_constraintTop_toTopOf="@+id/iv_inspiration_sider" />
+
+        <ImageView
+            android:id="@+id/iv_inspiration_sider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_pic_sider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.075"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#0E7569" />
+
+        <ImageView
+            android:id="@+id/iv_inspiration_boarder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/ic_inspiration_boarder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toEndOf="@+id/iv_inspiration_sider"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#0E7569" />
+
+        <TextView
+            android:textColor="#0E7569"
+            android:layout_width="20dp"
+            android:layout_height="111dp"
+            android:text="@{inspirationColor.topText}"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_inspiration_boarder"
+            app:layout_constraintEnd_toEndOf="@+id/iv_inspiration_boarder"
+            app:layout_constraintStart_toStartOf="@+id/iv_inspiration_boarder"
+            app:layout_constraintTop_toTopOf="@+id/iv_inspiration_boarder" />
+
+        <ImageView
+            android:id="@+id/iv_inspiration_pic2"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            imageUrl="@{inspirationColor.BottomPic}"
+            android:transformPivotY="500dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iv_inspiration_sider2"
+            app:layout_constraintStart_toStartOf="@+id/iv_inspiration_sider2"
+            app:layout_constraintTop_toBottomOf="@+id/iv_inspiration_sider" />
+
+        <ImageView
+            android:id="@+id/iv_inspiration_sider2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/ic_pic_sider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.925"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_inspiration_sider"
+            app:tint="#FFAC5A" />
+
+        <ImageView
+            android:id="@+id/iv_inspiration_boarder2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="308dp"
+            android:src="@drawable/ic_inspiration_boarder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_inspiration_sider"
+            app:layout_constraintVertical_bias="0.516"
+            app:tint="#FFAC5A" />
+
+        <TextView
+            android:textColor="#FFAC5A"
+            android:layout_width="20dp"
+            android:layout_height="111dp"
+            android:text="@{inspirationColor.bottomText}"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_inspiration_boarder2"
+            app:layout_constraintEnd_toEndOf="@+id/iv_inspiration_boarder2"
+            app:layout_constraintStart_toStartOf="@+id/iv_inspiration_boarder2"
+            app:layout_constraintTop_toTopOf="@+id/iv_inspiration_boarder2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

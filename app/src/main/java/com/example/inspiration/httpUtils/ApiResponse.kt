@@ -186,3 +186,25 @@ data class ShadeX(
     val color: Color
 )
 
+//灵感界面的首页
+data class InspirationHome(
+    val id: Int,
+    val image: String,
+    val name: String
+//    val `data`: List<Data>
+)
+
+//data class Data(
+//    val id: Int,
+//    val image: String,
+//    val name: String
+//)
+
+//灵感的List
+//data class InspirationList(
+//    val `data`: List<Data>
+//)
+//
+//data class Data(
+//    val ideaDetail: Int
+//)

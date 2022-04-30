@@ -46,4 +46,15 @@ interface ApiService {
     @GET("/color/color_detail")
     suspend fun getColorDetail(@Query("color_detail_id") id: String): ApiResponse<ColorDetail>
 
+    /**
+     * 得到灵感界面的首页信息
+     */
+    @GET("/idea/idea")
+    suspend fun getInspirationHome() : ApiResponse<List<InspirationHome>>
+
+    /**
+     * 得到灵感首页的具体信息
+     */
+//    @GET("/idea/idea_detail_list")
+
 }

@@ -27,6 +27,10 @@
         android:name="com.example.inspiration.ui.fragment.FragmentColor"
         android:label="ColorFragment"
         tools:layout="@layout/fragment_color">
+        <action
+            app:popUpToInclusive="true"
+            android:id="@+id/action_nav_color_to_nav_color_detail"
+            app:destination="@id/nav_color_detail" />
     </fragment>
 
     <fragment
@@ -44,5 +48,24 @@
             android:name="idPager"
             app:argType="integer"
             android:defaultValue="0" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_color_detail"
+        android:name="com.example.inspiration.ui.fragment.FragmentColorDetail"
+        android:label="ColorDetailFragment"
+        tools:layout="@layout/fragment_color_detail">
+        <argument
+            android:name="idPager"
+            app:argType="integer"
+            android:defaultValue="0"/>
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0"/>
+        <action
+            android:id="@+id/action_nav_color_detail_to_nav_color"
+            app:destination="@id/nav_color"
+            />
     </fragment>
 </navigation>

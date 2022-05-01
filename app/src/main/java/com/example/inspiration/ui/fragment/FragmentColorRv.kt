@@ -2,13 +2,15 @@ package com.example.inspiration.ui.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
+import androidx.navigation.fragment.findNavController
 import com.example.inspiration.BR
 import com.example.inspiration.R
 import com.example.inspiration.base.BaseFragment
@@ -19,10 +21,10 @@ import com.example.inspiration.ui.adapter.animators.updateAnimation
 import com.example.inspiration.ui.adapter.binding.BindingViewModel
 import com.example.inspiration.ui.adapter.binding.bindingViewModelDsl
 import com.example.inspiration.ui.adapter.core.ListAdapter
+import com.example.inspiration.ui.adapter.core.getView
 import com.example.inspiration.ui.adapter.core.getViewModel
 import com.example.inspiration.ui.adapter.core.into
 import com.example.inspiration.ui.viewModel.ColorViewModel
-
 
 
 /**
@@ -56,20 +58,45 @@ class FragmentColorRv (private val idPaper:String): BaseFragment() {
                 colorList.color_list.forEach { color ->
                     mListAdapter.add(
                         bindingViewModelDsl(R.layout.item_rv_color,BR.colorInfo,color){
+
                             onBindViewHolder {
                                 val viewModel = getViewModel<BindingViewModel<Color>>()
                                 if(viewModel?.model != null){
                                     val colorR = viewModel.model?.r!!
                                     val colorG = viewModel.model?.g!!
                                     val colorB = viewModel.model?.b!!
-                                    itemView.findViewById<CardView>(R.id.cv_color).setCardBackgroundColor(android.graphics.Color.rgb(colorR,colorG,colorB))
+
+                                    val cardView = itemView.findViewById<CardView>(R.id.cv_color)
+                                    cardView.setCardBackgroundColor(android.graphics.Color.rgb(colorR,colorG,colorB))
+
+                                }
+
+                                itemView.findViewById<CardView>(R.id.cv_color).setOnClickListener {
+                                    //元素动画
+                                    it.transitionName = "cv_avatar_color_card"
+                                    val imagePair = Pair(it,"cv_avatar_color_card")
+                                    val extras = FragmentNavigatorExtras(imagePair)
+
+                                    val bundle = FragmentColorDetailArgs.Builder()
+                                        .setIdPager(idPaper.toInt())
+                                        .setPosition(absoluteAdapterPosition)
+                                        .build()
+                                        .toBundle()
+
+                                    findNavController().navigate(R.id.action_nav_color_to_nav_color_detail,
+                                        bundle,
+                                        null,
+                                        extras)
                                 }
                             }
+
                             onViewAttachedToWindow {
                                 firstAnimation()
                                 updateAnimation()
                             }
+
                         }
+
                     )
                 }
             }

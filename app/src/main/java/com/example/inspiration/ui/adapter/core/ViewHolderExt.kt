@@ -7,11 +7,9 @@ import com.example.inspiration.R
 
 /**
  *
- * @ProjectName:    ToDo
- * @Package:        com.example.todo.ui.adapter.core
  * @ClassName:      ViewHolderExt
  * @Author:         Yan
- * @CreateDate:     2022年04月20日 00:23:00
+ * @CreateDate:     20点26分
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  * @Description:    ViewHolderExt

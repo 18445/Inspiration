@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.inspiration.base.BaseFragment
-import com.example.inspiration.databinding.FragmentColorBinding
+import com.example.inspiration.databinding.FragmentCollectBinding
 
 
 /**
@@ -21,7 +21,7 @@ import com.example.inspiration.databinding.FragmentColorBinding
  */
 class FragmentCollect : BaseFragment() {
 
-    private lateinit var fragmentColorCollectBinding: FragmentColorBinding
+    private lateinit var fragmentCollectBinding: FragmentCollectBinding
 
     override fun initData() {
 
@@ -36,8 +36,8 @@ class FragmentCollect : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        fragmentColorCollectBinding = FragmentColorBinding.inflate(inflater)
-        return fragmentColorCollectBinding.root
+        fragmentCollectBinding = FragmentCollectBinding.inflate(inflater)
+        return fragmentCollectBinding.root
     }
 
 }

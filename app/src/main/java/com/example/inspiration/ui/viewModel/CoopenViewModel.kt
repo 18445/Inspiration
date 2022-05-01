@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
  * @CreateDate:     2022年04月30日 13:16:00
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
- * @Description:     //TODO
+ * @Description:    CoopenViewModel
  */
 class CoopenViewModel : ViewModel() {
 

@@ -28,44 +28,6 @@ import java.util.*
 
 
 /**
- * 将日期转换为具体时间.
- */
-fun String.dayToHourTime(): String {
-    val arr1 = this.split("T")
-    val arr2 = arr1[1].split("+")
-    return arr2[0]
-}
-
-/**
- * 格式化当前日期
- */
-fun formatCurrentDate(): String {
-    val sdf = SimpleDateFormat("yyyy-MM-dd")
-    return sdf.format(Date())
-}
-
-/**
- * String 转 Calendar
- */
-fun String.stringToCalendar(): Calendar {
-    val sdf = SimpleDateFormat("yyyy-MM-dd")
-    val date = sdf.parse(this)
-    val calendar = Calendar.getInstance()
-    if (date != null) {
-        calendar.time = date
-    }
-    return calendar
-}
-
-@RequiresApi(Build.VERSION_CODES.N)
-fun Double.getNoMoreThanTwoDigits(): String {
-    val format = DecimalFormat("0.##")
-    //未保留小数的舍弃规则，RoundingMode.FLOOR表示直接舍弃。
-    format.roundingMode = RoundingMode.FLOOR
-    return format.format(this)
-}
-
-/**
  * 防止View的多次点击操作
  */
 inline fun View.onSafeClick(crossinline onTap: () -> Unit,duration : Long = 1500L){

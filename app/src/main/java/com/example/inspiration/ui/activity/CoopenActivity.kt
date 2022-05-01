@@ -57,8 +57,8 @@ class CoopenActivity : BaseActivity() {
         coopenBinding  = DataBindingUtil.setContentView(this, R.layout.activity_coopen)
 
         coopenBinding.also {
-            it.bottomText = "Register now"
-            it.topText = "Login in"
+            it.bottomText = "Login in"
+            it.topText = "Register Now"
         }
 
 

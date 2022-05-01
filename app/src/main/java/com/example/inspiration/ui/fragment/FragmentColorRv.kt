@@ -14,6 +14,8 @@ import com.example.inspiration.R
 import com.example.inspiration.base.BaseFragment
 import com.example.inspiration.databinding.FragmentColorRvBinding
 import com.example.inspiration.httpUtils.Color
+import com.example.inspiration.ui.adapter.animators.firstAnimation
+import com.example.inspiration.ui.adapter.animators.updateAnimation
 import com.example.inspiration.ui.adapter.binding.BindingViewModel
 import com.example.inspiration.ui.adapter.binding.bindingViewModelDsl
 import com.example.inspiration.ui.adapter.core.ListAdapter
@@ -62,6 +64,10 @@ class FragmentColorRv (private val idPaper:String): BaseFragment() {
                                     val colorB = viewModel.model?.b!!
                                     itemView.findViewById<CardView>(R.id.cv_color).setCardBackgroundColor(android.graphics.Color.rgb(colorR,colorG,colorB))
                                 }
+                            }
+                            onViewAttachedToWindow {
+                                firstAnimation()
+                                updateAnimation()
                             }
                         }
                     )

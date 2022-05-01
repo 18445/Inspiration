@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dp"
+    android:layout_height="50dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_inspiration_card_left"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_inspiration_card_right"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_inspiration_card_bottom"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_inspiration_card_top"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_inspiration_card"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/gl_inspiration_card_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/gl_inspiration_card_right"
+        app:layout_constraintStart_toStartOf="@+id/gl_inspiration_card_left"
+        app:layout_constraintTop_toTopOf="@+id/gl_inspiration_card_top" />
+
+    <TextView
+        android:id="@+id/tv_inspiration_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/gl_inspiration_card_right"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/gl_inspiration_card_left"
+        app:layout_constraintTop_toTopOf="@+id/gl_inspiration_card_bottom" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,8 +31,8 @@ class ColorViewModel : ViewModel(){
 
 
     val colorPage = StateLiveData<ColorPage>()
-    val colorDetail = StateLiveData<ColorDetail>()
     val colorListSet = SparseArray<StateLiveData<ColorList>>()
+    val colorDetail = StateLiveData<ColorDetail>()
 
     fun getColorPageId(){
         viewModelScope.launch {

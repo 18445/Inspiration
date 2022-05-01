@@ -22,10 +22,24 @@ import com.bumptech.glide.Glide
  */
 @BindingAdapter("imageUrl")
 fun loadImage(view: ImageView, url: String) {
-    Log.d("imageUrl",url)
-
+    val urls = url.split("s")
     Glide.with(view)
-        .load(url)
+        .load(urls[0]+urls[1])
+        .circleCrop()
         .into(view)
+}
 
+/**
+ * 加载完整image
+ */
+@BindingAdapter("imageTotalUrl")
+fun loadTotalImage(view: ImageView, url: String?) {
+    if (url != null){
+        val urls = url.split("s")
+        Glide.with(view)
+            .load(urls[0]+urls[1])
+            .override(500, 1000)
+            .centerCrop()
+            .into(view)
+    }
 }

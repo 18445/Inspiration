@@ -53,8 +53,15 @@ interface ApiService {
     suspend fun getInspirationHome() : ApiResponse<List<InspirationHome>>
 
     /**
-     * 得到灵感首页的具体信息
+     * 得到灵感首页的list、
      */
-//    @GET("/idea/idea_detail_list")
+    @GET("/idea/idea_detail_list")
+    suspend fun getInspirationList(@Query("idea_id") id: String) : ApiResponse<List<InspirationList>>
+
+    /**
+     * 得到灵感首页的详细
+     */
+    @GET("/idea/idea_detail")
+    suspend fun getInspirationIdea(@Query("idea_detail_id") id: String) : ApiResponse<InspirationDetail>
 
 }

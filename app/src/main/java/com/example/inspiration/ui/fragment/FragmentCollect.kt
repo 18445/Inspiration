@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.inspiration.base.BaseFragment
 import com.example.inspiration.databinding.FragmentColorBinding
-import com.example.inspiration.databinding.FragmentInspirationBinding
+
 
 /**
  *
@@ -21,7 +21,7 @@ import com.example.inspiration.databinding.FragmentInspirationBinding
  */
 class FragmentCollect : BaseFragment() {
 
-    private lateinit var fragmentColorBinding: FragmentColorBinding
+    private lateinit var fragmentColorCollectBinding: FragmentColorBinding
 
     override fun initData() {
 
@@ -36,8 +36,8 @@ class FragmentCollect : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        fragmentColorBinding = FragmentColorBinding.inflate(inflater)
-        return fragmentColorBinding.root
+        fragmentColorCollectBinding = FragmentColorBinding.inflate(inflater)
+        return fragmentColorCollectBinding.root
     }
 
 }

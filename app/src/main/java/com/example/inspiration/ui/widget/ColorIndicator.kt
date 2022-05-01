@@ -38,7 +38,7 @@ class ColorIndicator constructor(
     }
 
     private val largeSize = 15f
-    private val smallSize = 8f
+    private val smallSize = 5f
 
 
     private val mNormalPaint = Paint()
@@ -50,7 +50,8 @@ class ColorIndicator constructor(
         mNormalPaint.apply {
             isAntiAlias = true
             color = Color.WHITE
-            style = Paint.Style.STROKE
+            style = Paint.Style.FILL
+            textSize = 5f
         }
         mSelectedPaint.apply {
             isAntiAlias = true

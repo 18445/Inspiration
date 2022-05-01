@@ -22,8 +22,8 @@
 
         <ImageView
             android:id="@+id/iv_inspiration_pic"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="155dp"
+            android:layout_height="155dp"
             imageUrl="@{inspirationColor.topPic}"
             android:transformPivotY="500dp"
             app:layout_constraintBottom_toBottomOf="@+id/iv_inspiration_sider"
@@ -67,10 +67,11 @@
 
         <ImageView
             android:id="@+id/iv_inspiration_pic2"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
             imageUrl="@{inspirationColor.BottomPic}"
+            android:layout_width="155dp"
+            android:layout_height="155dp"
 
+            app:layout_constraintBottom_toBottomOf="@+id/iv_inspiration_sider2"
             app:layout_constraintEnd_toEndOf="@+id/iv_inspiration_sider2"
             app:layout_constraintStart_toStartOf="@+id/iv_inspiration_sider2"
             app:layout_constraintTop_toBottomOf="@+id/iv_inspiration_sider" />
@@ -82,7 +83,7 @@
             android:layout_marginTop="4dp"
             android:src="@drawable/ic_pic_sider"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.925"
+            app:layout_constraintHorizontal_bias="0.924"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_inspiration_sider"
             app:tint="#333333" />

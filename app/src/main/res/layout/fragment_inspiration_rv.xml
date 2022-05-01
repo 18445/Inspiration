@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="detail"
+            type="com.example.inspiration.model.InspirationDetailModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_inspiration_detail_left"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_inspiration_detail_right"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_inspiration_detail_mid_vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_inspiration_detail_pic_right"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.45" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_inspiration_detail_mid_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_inspiration_detail_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_inspiration_detail_bottom"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            imageTotalUrl="@{detail.url}"
+            android:layout_width="0dp"
+            android:layout_height="450dp"
+            app:layout_constraintBottom_toTopOf="@+id/gl_inspiration_detail_mid_horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/gl_inspiration_detail_pic_right"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/gl_inspiration_detail_left"
+            app:layout_constraintTop_toTopOf="@+id/gl_inspiration_detail_top"
+            app:layout_constraintVertical_bias="0.35" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_inspiration_shader"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/gl_inspiration_detail_mid_horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/gl_inspiration_detail_right"
+            app:layout_constraintStart_toStartOf="@+id/gl_inspiration_detail_mid_vertical"
+            app:layout_constraintTop_toTopOf="@+id/gl_inspiration_detail_top"
+            app:layout_constraintVertical_bias="0.0">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_inspiration_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/gl_inspiration_detail_bottom"
+            app:layout_constraintEnd_toStartOf="@+id/gl_inspiration_detail_right"
+            app:layout_constraintStart_toStartOf="@+id/gl_inspiration_detail_left"
+            app:layout_constraintTop_toTopOf="@+id/gl_inspiration_detail_mid_horizontal" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

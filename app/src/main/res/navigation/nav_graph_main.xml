@@ -8,20 +8,41 @@
     <fragment
         android:id="@+id/nav_inspiration"
         android:name="com.example.inspiration.ui.fragment.FragmentInspiration"
-        android:label="MyFragment"
+        android:label="InspirationFragment"
         tools:layout="@layout/fragment_inspiration">
+        <action
+            android:id="@+id/action_nav_inspiration_to_nav_inspiration_idea"
+            app:destination="@id/nav_inspiration_idea"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim" >
+            <argument
+                android:name="idPager"
+                app:argType="integer"
+                android:defaultValue="0" />
+        </action>
     </fragment>
 
     <fragment
         android:id="@+id/nav_color"
         android:name="com.example.inspiration.ui.fragment.FragmentColor"
-        android:label="TaskFragment"
+        android:label="ColorFragment"
         tools:layout="@layout/fragment_color">
     </fragment>
 
     <fragment
         android:id="@+id/nav_collect"
         android:name="com.example.inspiration.ui.fragment.FragmentCollect"
-        android:label="SettingFragment"
+        android:label="CollectFragment"
         tools:layout="@layout/fragment_collect"/>
+
+    <fragment
+        android:id="@+id/nav_inspiration_idea"
+        android:name="com.example.inspiration.ui.fragment.FragmentInspirationVp"
+        android:label="InspirationIdeaFragment"
+        tools:layout="@layout/fragment_inspiration_vp">
+        <argument
+            android:name="idPager"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

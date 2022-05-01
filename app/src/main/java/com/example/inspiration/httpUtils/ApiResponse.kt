@@ -191,20 +191,18 @@ data class InspirationHome(
     val id: Int,
     val image: String,
     val name: String
-//    val `data`: List<Data>
 )
 
-//data class Data(
-//    val id: Int,
-//    val image: String,
-//    val name: String
-//)
-
 //灵感的List
-//data class InspirationList(
-//    val `data`: List<Data>
-//)
-//
-//data class Data(
-//    val ideaDetail: Int
-//)
+data class InspirationList(
+    val ideaDetail: Int
+)
+
+//灵感的详细类
+data class InspirationDetail(
+    val colors: Colors,
+    val image: String,
+    val intro: String,
+    val shades: Shades,
+    val title: String
+)

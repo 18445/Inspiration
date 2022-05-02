@@ -1,6 +1,7 @@
 package com.example.inspiration.httpUtils
 
 
+import retrofit2.Call
 import retrofit2.http.*
 
 /**
@@ -63,5 +64,36 @@ interface ApiService {
      */
     @GET("/idea/idea_detail")
     suspend fun getInspirationIdea(@Query("idea_detail_id") id: String) : ApiResponse<InspirationDetail>
+
+    /**
+     * 收藏
+     */
+    @Headers("Content-type:application/json;charset=UTF-8;","ignoreToken:false")
+    @FormUrlEncoded
+    @POST("/star/star")
+    suspend fun starStar(@Field("shade_id") id : String,@Field("name")name:String) : ApiResponse<Any>
+
+    /**
+     * 删除收藏
+     */
+    @Headers("Content-type:application/json;charset=UTF-8;","ignoreToken:false")
+    @FormUrlEncoded
+    @POST("/star/delete_star")
+    suspend fun deleteStar(@Field("star_id") id : String) : ApiResponse<Any>
+
+    /**
+     * 得到收藏列表
+     */
+    @Headers("Content-type:application/json;charset=UTF-8;","ignoreToken:false")
+    @GET("/star/star_list")
+    suspend fun getStarList(@Query("page") page : Int) : ApiResponse<StarList>
+
+    /**
+     * 重新获得Token
+     */
+    @GET("/user/long_login")
+    fun getToken() : Call<Any>
+
+
 
 }

@@ -96,7 +96,6 @@ class FragmentInspirationRv (private val idPaper:String): BaseFragment() {
                 colors.add(Color.rgb(it.color.r,it.color.g,it.color.b))
             }
 
-
             mListShaderAdapter.add(
                 layoutViewModelDsl(R.layout.item_rv_inspiration_shader,InspirationShaderModel(colors.toIntArray())){
                     onBindViewHolder {

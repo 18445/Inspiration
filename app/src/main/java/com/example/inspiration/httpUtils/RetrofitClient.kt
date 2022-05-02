@@ -1,14 +1,17 @@
 package com.example.inspiration.httpUtils
 
+
 import androidx.viewbinding.BuildConfig
 import com.example.inspiration.constant.HttpConstant
 import com.example.inspiration.constant.HttpConstant.DEFAULT_READ_TIME
 import com.example.inspiration.constant.HttpConstant.DEFAULT_WRITE_TIME
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+
 
 /**
  *
@@ -56,6 +59,7 @@ object RetrofitClient {
             .writeTimeout(DEFAULT_WRITE_TIME, TimeUnit.SECONDS)//设置写操作超时时间
             .readTimeout(DEFAULT_READ_TIME, TimeUnit.SECONDS)//设置读操作超时时间
             .addInterceptor(getHttpLoggingInterceptor())
+            .addInterceptor(TokenInterceptor())
 
         return builder.build()
     }

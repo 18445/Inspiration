@@ -67,5 +67,20 @@
             android:id="@+id/action_nav_color_detail_to_nav_color"
             app:destination="@id/nav_color"
             />
+        <action
+            android:id="@+id/action_nav_color_detail_to_nav_color_shade"
+            app:destination="@id/nav_color_shade" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_color_shade"
+        android:name="com.example.inspiration.ui.fragment.FragmentColorShade"
+        android:label="ColorShadeFragment"
+        tools:layout="@layout/fragment_color_shade">
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0"
+            />
     </fragment>
 </navigation>

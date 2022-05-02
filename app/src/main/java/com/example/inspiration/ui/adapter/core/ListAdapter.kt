@@ -25,7 +25,7 @@ class ListAdapter : BaseAdapter<ViewModelType>(){
     }
 
     //加载数据项
-    override fun getItem(position: Int): ViewModelType? {
+    override fun getItem(position: Int): ViewModelType {
         return dataList[position]
     }
 
@@ -43,6 +43,15 @@ class ListAdapter : BaseAdapter<ViewModelType>(){
         val result = dataList.add(vm)
         notifyItemRangeInserted(itemCount - 1,1)
         return result
+    }
+
+    //移动数据
+    fun move(fromPosition : Int, toPosition : Int){
+        val fromData = dataList[fromPosition]
+        val toData = dataList[toPosition]
+        dataList[fromPosition] = toData
+        dataList[toPosition] = fromData
+        notifyItemMoved(fromPosition,toPosition)
     }
 
     //在指定的位置添加数据

@@ -157,8 +157,8 @@ class CoopenActivity : BaseActivity() {
             onSuccess {
                 toast("登录成功")
                 startActivity(Intent(this@CoopenActivity, MainActivity::class.java))
-                MMKV.defaultMMKV().decodeString(Constant.Access_USER_TOKEN,it.token)
-                MMKV.defaultMMKV().decodeString(Constant.Refresh_USER_TOKEN,it.refreshToken)
+                MMKV.defaultMMKV().encode(Constant.Access_USER_TOKEN,it.token)
+                MMKV.defaultMMKV().encode(Constant.Refresh_USER_TOKEN,it.refreshToken)
                 finish()
             }
             onFailed { _, s ->

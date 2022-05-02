@@ -3,30 +3,19 @@ package com.example.inspiration.ui.fragment
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.transition.TransitionInflater
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import com.example.inspiration.R
 import com.example.inspiration.base.BaseFragment
 import com.example.inspiration.databinding.FragmentColorDetailBinding
-import com.example.inspiration.databinding.FragmentColorRvBinding
-import com.example.inspiration.httpUtils.ColorDetail
 import com.example.inspiration.httpUtils.Colors
 import com.example.inspiration.httpUtils.Shades
-import com.example.inspiration.model.InspirationShaderModel
-import com.example.inspiration.ui.adapter.core.ListAdapter
-import com.example.inspiration.ui.adapter.core.getModel
-import com.example.inspiration.ui.adapter.core.into
-import com.example.inspiration.ui.adapter.core.layoutViewModelDsl
 import com.example.inspiration.ui.viewModel.ColorViewModel
-import com.example.inspiration.ui.widget.CircleShader
 import kotlin.properties.Delegates
 
 /**
@@ -47,7 +36,6 @@ class FragmentColorDetail : BaseFragment() {
     private val colorViewModel by activityViewModels<ColorViewModel>()
     private lateinit var idPage: String
     private var position by Delegates.notNull<Int>()
-    
 
     override fun initData() {
         val args = requireArguments()
@@ -102,13 +90,123 @@ class FragmentColorDetail : BaseFragment() {
             }
             listOfShades.add(colors.toIntArray())
         }
-        
-        fragmentColorDetailBinding.csColor1.setColorArray(listOfShades[0])
-        fragmentColorDetailBinding.csColor2.setColorArray(listOfShades[1])
-        fragmentColorDetailBinding.csColor3.setColorArray(listOfShades[2])
-        fragmentColorDetailBinding.csColor4.setColorArray(listOfShades[3])
-        fragmentColorDetailBinding.csColor5.setColorArray(listOfShades[4])
-        fragmentColorDetailBinding.csColor6.setColorArray(listOfShades[5])
+
+        fragmentColorDetailBinding.apply {
+            csColor1.apply {
+                setColorArray(listOfShades[0])
+                setOnClickListener {
+                it.transitionName = "cs_color_shade"
+                val backgroundPair = Pair(it,"cs_color_shade")
+                val extras = FragmentNavigatorExtras(backgroundPair)
+
+                val bundle = FragmentColorShadeArgs.Builder()
+                    .setPosition(1)
+                    .build()
+                    .toBundle()
+
+                findNavController().navigate(R.id.action_nav_color_detail_to_nav_color_shade,
+                    bundle,
+                    null,
+                    extras)
+            }
+            }
+
+            csColor2.apply {
+                setColorArray(listOfShades[1])
+                setOnClickListener {
+                it.transitionName = "cs_color_shade"
+                val backgroundPair = Pair(it,"cs_color_shade")
+                val extras = FragmentNavigatorExtras(backgroundPair)
+
+                val bundle = FragmentColorShadeArgs.Builder()
+                    .setPosition(2)
+                    .build()
+                    .toBundle()
+
+                findNavController().navigate(R.id.action_nav_color_detail_to_nav_color_shade,
+                    bundle,
+                    null,
+                    extras)
+            }
+            }
+
+            csColor3.apply {
+                setColorArray(listOfShades[2])
+                setOnClickListener {
+                it.transitionName = "cs_color_shade"
+                val backgroundPair = Pair(it,"cs_color_shade")
+                val extras = FragmentNavigatorExtras(backgroundPair)
+
+                val bundle = FragmentColorShadeArgs.Builder()
+                    .setPosition(3)
+                    .build()
+                    .toBundle()
+
+                findNavController().navigate(R.id.action_nav_color_detail_to_nav_color_shade,
+                    bundle,
+                    null,
+                    extras)
+            }
+            }
+
+            csColor4.apply {
+                setColorArray(listOfShades[3])
+                setOnClickListener {
+                it.transitionName = "cs_color_shade"
+                val backgroundPair = Pair(it,"cs_color_shade")
+                val extras = FragmentNavigatorExtras(backgroundPair)
+
+                val bundle = FragmentColorShadeArgs.Builder()
+                    .setPosition(4)
+                    .build()
+                    .toBundle()
+
+                findNavController().navigate(R.id.action_nav_color_detail_to_nav_color_shade,
+                    bundle,
+                    null,
+                    extras)
+            }
+            }
+
+            csColor5.apply {
+                setColorArray(listOfShades[4])
+                setOnClickListener {
+                it.transitionName = "cs_color_shade"
+                val backgroundPair = Pair(it,"cs_color_shade")
+                val extras = FragmentNavigatorExtras(backgroundPair)
+
+                val bundle = FragmentColorShadeArgs.Builder()
+                    .setPosition(5)
+                    .build()
+                    .toBundle()
+
+                findNavController().navigate(R.id.action_nav_color_detail_to_nav_color_shade,
+                    bundle,
+                    null,
+                    extras)
+            }
+            }
+
+            csColor6.apply {
+                setColorArray(listOfShades[5])
+                setOnClickListener {
+                it.transitionName = "cs_color_shade"
+                val backgroundPair = Pair(it,"cs_color_shade")
+                val extras = FragmentNavigatorExtras(backgroundPair)
+
+                val bundle = FragmentColorShadeArgs.Builder()
+                    .setPosition(6)
+                    .build()
+                    .toBundle()
+
+                findNavController().navigate(R.id.action_nav_color_detail_to_nav_color_shade,
+                    bundle,
+                    null,
+                    extras)
+            }
+            }
+
+        }
 
     }
 
@@ -121,19 +219,23 @@ class FragmentColorDetail : BaseFragment() {
         val color5 = colors.color_5
         val color6 = colors.color_6
 
-        fragmentColorDetailBinding.cvColorCard1.setCardBackgroundColor(Color.parseColor("#${color1.hex}"))
-        fragmentColorDetailBinding.cvColorCard2.setCardBackgroundColor(Color.parseColor("#${color2.hex}"))
-        fragmentColorDetailBinding.cvColorCard3.setCardBackgroundColor(Color.parseColor("#${color3.hex}"))
-        fragmentColorDetailBinding.cvColorCard4.setCardBackgroundColor(Color.parseColor("#${color4.hex}"))
-        fragmentColorDetailBinding.cvColorCard5.setCardBackgroundColor(Color.parseColor("#${color5.hex}"))
-        fragmentColorDetailBinding.cvColorCard6.setCardBackgroundColor(Color.parseColor("#${color6.hex}"))
+        fragmentColorDetailBinding.apply {
 
-        fragmentColorDetailBinding.tvColorCard1.text = "#${color1.hex}"
-        fragmentColorDetailBinding.tvColorCard2.text = "#${color2.hex}"
-        fragmentColorDetailBinding.tvColorCard3.text = "#${color3.hex}"
-        fragmentColorDetailBinding.tvColorCard4.text = "#${color4.hex}"
-        fragmentColorDetailBinding.tvColorCard5.text = "#${color5.hex}"
-        fragmentColorDetailBinding.tvColorCard6.text = "#${color6.hex}"
+            cvColorCard1.apply { setCardBackgroundColor(Color.parseColor("#${color1.hex}")) }
+            cvColorCard2.apply { setCardBackgroundColor(Color.parseColor("#${color2.hex}")) }
+            cvColorCard3.apply { setCardBackgroundColor(Color.parseColor("#${color3.hex}")) }
+            cvColorCard4.apply { setCardBackgroundColor(Color.parseColor("#${color4.hex}")) }
+            cvColorCard5.apply { setCardBackgroundColor(Color.parseColor("#${color5.hex}")) }
+            cvColorCard6.apply { setCardBackgroundColor(Color.parseColor("#${color6.hex}")) }
+
+            tvColorCard1.apply { text = "#${color1.hex}" }
+            tvColorCard2.apply { text = "#${color2.hex}" }
+            tvColorCard3.apply { text = "#${color3.hex}" }
+            tvColorCard4.apply { text = "#${color4.hex}" }
+            tvColorCard5.apply { text = "#${color5.hex}" }
+            tvColorCard6.apply { text = "#${color6.hex}" }
+        }
+
     }
 
 }

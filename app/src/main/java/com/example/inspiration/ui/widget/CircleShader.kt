@@ -28,6 +28,8 @@ class CircleShader constructor(
 
     private var colorArray = intArrayOf()
 
+    private var isCircle = true
+
 
 
     init {
@@ -44,7 +46,11 @@ class CircleShader constructor(
      */
     private fun drawCircle(canvas: Canvas){
         setLinearGradient(colorArray)
-        canvas.drawCircle(width/2f,height/2f,width/2f,mPaint)
+        if (isCircle){
+            canvas.drawCircle(width/2f,height/2f, width/2f ,mPaint)
+        }else{
+            canvas.drawRect(0f,0f,width.toFloat(),height.toFloat(),mPaint)
+        }
     }
 
 
@@ -69,12 +75,17 @@ class CircleShader constructor(
                 array,points.toFloatArray(), Shader.TileMode.CLAMP)
 
         mPaint.shader = mLinearGradient
+        mPaint.isDither = true
         invalidate()
     }
 
     fun setColorArray(array: IntArray){
         colorArray = array
         invalidate()
+    }
+
+    fun isCircleOrRect(boolean: Boolean){
+        isCircle = boolean
     }
 
 

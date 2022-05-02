@@ -206,3 +206,20 @@ data class InspirationDetail(
     val shades: Shades,
     val title: String
 )
+
+//收藏列表
+data class StarList(
+    val has_more: Boolean,
+    val star_list: List<Star>
+)
+
+data class Star(
+    val colorShade: List<ColorShade>,
+    val id: Int,
+    val name: String
+)
+
+data class ColorShade(
+    val color: Color
+)
+

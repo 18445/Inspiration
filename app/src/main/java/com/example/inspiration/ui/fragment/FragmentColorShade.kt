@@ -65,6 +65,4 @@ class FragmentColorShade : BaseFragment() {
         }
         fragmentColorShadeBinding.csColorShadeBg.setColorArray(listOfShades[position - 1])
     }
-
-
 }

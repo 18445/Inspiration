@@ -38,7 +38,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0" />
 
-        <com.example.todo.ui.widget.AnimLogoView
+        <com.example.inspiration.ui.widget.AnimLogoView
             android:id="@+id/logo"
             android:layout_width="match_parent"
             android:layout_height="200dp"

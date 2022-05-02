@@ -1,4 +1,4 @@
-package com.example.todo.ui.widget
+package com.example.inspiration.ui.widget
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -16,9 +16,7 @@ import kotlin.math.min
 
 /**
  *
- * @ProjectName:    ToDo
- * @Package:        com.example.todo.ui.widget
- * @ClassName:      AnimLogoView
+ * @ClassName:      com.example.inspiration.ui.widget.AnimLogoView
  * @Author:         Yan
  * @CreateDate:     2022年04月04日 18:20:00
  * @UpdateRemark:   更新说明：

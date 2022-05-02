@@ -8,11 +8,8 @@ import com.example.inspiration.base.BaseApplication
 
 /**
  *
- * @ProjectName:    ToDo
- * @Package:        com.example.todo.utils
  * @ClassName:      ToastUtils
  * @Author:         Yan
- * @CreateDate:     2022年04月06日 17:00:00
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  * @Description:    toast 工具类

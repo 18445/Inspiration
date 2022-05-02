@@ -6,11 +6,8 @@ import android.view.animation.RotateAnimation
 
 /**
  *
- * @ProjectName:    ToDo
- * @Package:        com.example.todo.utils
  * @ClassName:      Animation
  * @Author:         Yan
- * @CreateDate:     2022年04月07日 14:10:00
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  * @Description:     动画的工具类

@@ -14,6 +14,7 @@
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/drawable/write_back.xml" value="0.271" />
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/activity_coopen.xml" value="0.33" />
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/activity_main.xml" value="0.3619791666666667" />
+        <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/dialog_color_detail.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/fragment_collect.xml" value="0.3619791666666667" />
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/fragment_color.xml" value="0.25" />
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/fragment_color_detail.xml" value="0.33" />
@@ -23,7 +24,7 @@
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/fragment_inspiration_rv.xml" value="0.36216779572694113" />
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/fragment_inspiration_vp.xml" value="0.25" />
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/item_binding_layout.xml" value="0.3619791666666667" />
-        <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/item_rv_collect_card.xml" value="0.33" />
+        <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/item_rv_collect_card.xml" value="0.5" />
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/item_rv_color.xml" value="0.33" />
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/item_rv_color_detail_shader.xml" value="0.67" />
         <entry key="..\:/AndroidStudio/Inspiration/app/src/main/res/layout/item_rv_inspiration.xml" value="0.33" />

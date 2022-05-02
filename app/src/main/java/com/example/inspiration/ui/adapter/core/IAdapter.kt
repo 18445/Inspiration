@@ -8,11 +8,8 @@ import androidx.lifecycle.LifecycleOwner
 
 /**
  *
- * @ProjectName:    ToDo
- * @Package:        com.example.todo.ui.adapter.core
  * @ClassName:      IAdapter
  * @Author:         Yan
- * @CreateDate:     2022年04月20日 00:06:00
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  * @Description:    IAdapter 生命周期的回调

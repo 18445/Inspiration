@@ -7,14 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 
 /**
  *
- * @ProjectName:    ToDo
- * @Package:        com.example.todo.ui.adapter.core
  * @ClassName:      ViewmodelFactory
  * @Author:         Yan
- * @CreateDate:     2022年04月19日 23:44:00
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
- * @Description:     //TODO
  */
 
 //ViewHolder工厂

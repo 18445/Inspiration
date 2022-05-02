@@ -5,11 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 
 /**
- * @ProjectName:    ToDo
- * @Package:        com.example.todo.ui.adapter.core
  * @ClassName:      ViewModelExt
  * @Author:         Yan
- * @CreateDate:     2022年04月20日 00:21:00
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  * @Description:    DefaultViewModel ViewModel默认实现

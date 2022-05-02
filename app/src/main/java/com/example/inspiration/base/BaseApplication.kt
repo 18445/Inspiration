@@ -7,8 +7,6 @@ import com.tencent.mmkv.MMKV
 
 /**
  *
- * @ProjectName:    ToDo
- * @Package:        com.example.todo
  * @ClassName:      MyApplication
  * @Author:         Yan
  * @CreateDate:     12点30分

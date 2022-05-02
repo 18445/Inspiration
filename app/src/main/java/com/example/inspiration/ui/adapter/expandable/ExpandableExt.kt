@@ -6,11 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 
 /**
  *
- * @ProjectName:    ToDo
- * @Package:        com.example.todo.ui.adapter.expandable
  * @ClassName:      ExpandableExt
  * @Author:         Yan
- * @CreateDate:     2022年04月29日 21:01:00
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  * @Description:    可扩展的RecyclerView

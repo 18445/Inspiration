@@ -11,8 +11,6 @@ import com.example.inspiration.ui.adapter.core.DefaultViewModel
 
 /**
  *
- * @ProjectName:    ToDo
- * @Package:        com.example.todo.ui.adapter.binding
  * @ClassName:      BindingViewModel
  * @Author:         Yan
  * @CreateDate:     12点40分

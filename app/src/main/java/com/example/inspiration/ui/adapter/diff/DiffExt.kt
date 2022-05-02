@@ -7,11 +7,8 @@ import com.example.inspiration.ui.adapter.diff.ViewModelDiffType
 
 /**
  *
- * @ProjectName:    ToDo
- * @Package:        com.example.todo.ui.adapter.diff
  * @ClassName:      DiffExt
  * @Author:         Yan
- * @CreateDate:     2022年04月20日 21:22:00
  * @UpdateRemark:   更新说明：
  * @Version:        1.0
  * @Description:    DiffExt

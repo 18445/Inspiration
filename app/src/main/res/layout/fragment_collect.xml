@@ -14,13 +14,14 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="@{title}"
-            android:textSize="36sp"
-            android:textColor="@color/black"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="50dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{title}"
+            android:textColor="@color/black"
+            android:textSize="21sp"
             app:layout_constraintBottom_toTopOf="@+id/gl_collect_top"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.10" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_collect_card"

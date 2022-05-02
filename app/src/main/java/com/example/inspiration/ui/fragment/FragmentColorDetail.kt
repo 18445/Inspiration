@@ -2,11 +2,14 @@ package com.example.inspiration.ui.fragment
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
@@ -16,6 +19,7 @@ import com.example.inspiration.databinding.FragmentColorDetailBinding
 import com.example.inspiration.httpUtils.Colors
 import com.example.inspiration.httpUtils.Shades
 import com.example.inspiration.ui.viewModel.ColorViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlin.properties.Delegates
 
 /**
@@ -37,6 +41,7 @@ class FragmentColorDetail : BaseFragment() {
     private lateinit var idPage: String
     private var position by Delegates.notNull<Int>()
 
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun initData() {
         val args = requireArguments()
         idPage = FragmentColorDetailArgs.fromBundle(args).idPager.toString()
@@ -44,12 +49,22 @@ class FragmentColorDetail : BaseFragment() {
 
         colorViewModel.getColorDetail(idPage)
         colorViewModel.colorDetail.observeState(this){
-            onSuccess {
+            onSuccess { colorDetail ->
                 val colorInfo = colorViewModel.colorListSet[idPage.toInt()].value?.data?.color_list?.get(position)
                 fragmentColorDetailBinding.colorInfo = colorInfo
                 fragmentColorDetailBinding.cvCardColor.setCardBackgroundColor(Color.parseColor("#${colorInfo?.hex}"))
-                initShaderCircle(it.shades)
-                initColorCard(it.colors)
+                initShaderCircle(colorDetail.shades)
+                initColorCard(colorDetail.colors)
+
+
+                fragmentColorDetailBinding.cvCardColor.setOnClickListener {
+                    val bottomSheetDialog = BottomSheetDialog(requireContext())
+                    bottomSheetDialog.setContentView(R.layout.dialog_color_detail)
+                    bottomSheetDialog.show()
+
+                    bottomSheetDialog.requireViewById<TextView>(R.id.tv_dialog_text).text = colorDetail.intro
+                    bottomSheetDialog.requireViewById<TextView>(R.id.tv_dialog_title).text = colorInfo?.name
+                }
             }
         }
 
@@ -58,6 +73,7 @@ class FragmentColorDetail : BaseFragment() {
     override fun initView(view: View) {
         sharedElementEnterTransition = TransitionInflater.from(requireContext())
             .inflateTransition(R.transition.share_card)
+
     }
 
     override fun onCreateView(

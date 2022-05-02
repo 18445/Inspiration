@@ -163,7 +163,9 @@ class FragmentCollect : BaseFragment() {
 
                             //右侧渐变区
                             itemView.findViewById<CircleShader>(R.id.cs_collect_shade).apply {
+                                model.inspirationShaderModel.colorArray.reverse()
                                 setColorArray(model.inspirationShaderModel.colorArray)
+                                model.inspirationShaderModel.colorArray.reverse()
                                 isCircleOrRect(false)
                             }
 

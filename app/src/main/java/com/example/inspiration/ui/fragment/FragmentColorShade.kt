@@ -6,12 +6,14 @@ import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.fragment.app.activityViewModels
 import com.example.inspiration.R
 import com.example.inspiration.base.BaseFragment
 import com.example.inspiration.databinding.FragmentColorShadeBinding
 import com.example.inspiration.httpUtils.Shades
 import com.example.inspiration.ui.viewModel.ColorViewModel
+import com.example.inspiration.utils.shareImg
 import kotlin.properties.Delegates
 
 /**
@@ -41,6 +43,16 @@ class FragmentColorShade : BaseFragment() {
         sharedElementEnterTransition = TransitionInflater.from(requireContext())
             .inflateTransition(R.transition.share_card)
         fragmentColorShadeBinding.csColorShadeBg.isCircleOrRect(false)
+        fragmentColorShadeBinding.ivColorShare.setOnClickListener {
+            requireActivity().shareImg(fragmentColorShadeBinding.csColorShadeBg)
+        }
+        fragmentColorShadeBinding.ivColorShare.also {
+            it.alpha = 0f
+            it.animate().duration = 1250
+            it.animate().interpolator = AccelerateDecelerateInterpolator()
+            it.animate().alpha(1f)
+            it.animate().start()
+        }
     }
 
     override fun onCreateView(
